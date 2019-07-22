@@ -10,6 +10,12 @@ class MainHandler(webapp2.RequestHandler):
         template = env.get_template("templates/start.html")
         self.response.write(template.render())
 
+class RunHandler(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template("templates/run.html")
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/run', RunHandler),
 ], debug=True)
